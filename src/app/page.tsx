@@ -21,8 +21,8 @@ export default function HomePage() {
 
   return (
     <>
-      <header className="flex justify-around items-center bg-white py-6 px-6 md:px-28 shadow-sm sticky top-0 z-50">
-        <div className="flex items-center gap-2">
+      <header className="flex justify-between items-center bg-white py-6 px-6 md:px-28 shadow-sm sticky top-0 z-50">
+        <div id="logo" className="flex items-center gap-2">
           <Image
             src="/terminal-bash.svg"
             alt="Logo do terminal do bash"
@@ -34,7 +34,7 @@ export default function HomePage() {
           </h1>
         </div>
 
-        <nav className="hidden md:flex gap-20 text-sm text-gray-700 items-center">
+        <nav className="hidden md:flex gap-10 lg:gap-16 text-sm text-gray-700 items-center">
           <a href="#" className="flex items-center gap-1 hover:text-black">
             <Home className="w-4 h-4" /> Início
           </a>
@@ -52,7 +52,7 @@ export default function HomePage() {
           </a>
         </nav>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-gray-700 hover:text-black"
@@ -61,6 +61,7 @@ export default function HomePage() {
         </button>
       </header>
 
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4 text-gray-800">
           <a href="#" className="flex items-center gap-2">
@@ -82,9 +83,9 @@ export default function HomePage() {
       )}
 
       <main className="min-h-screen bg-white text-gray-900 font-sans">
-        <div className="bg-gray-50 grid md:grid-cols-2 items-center gap-12">
-          <section className="pl-0 md:pl-40">
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">
+        <div className="bg-gray-50 grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 md:px-28 py-10">
+          <section className="text-center md:text-left">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
               PROGRAMADOR <br />
               <span className="text-gray-400">Software Developer</span>
             </h2>
@@ -94,7 +95,7 @@ export default function HomePage() {
             <Button className="px-6 py-2 text-white bg-gray-900 rounded hover:bg-gray-800">
               Saiba mais sobre mim
             </Button>
-            <div className="flex gap-4 mt-6">
+            <div className="flex justify-center md:justify-start gap-4 mt-6">
               <a href="https://github.com/saulojustiniano1" target="_blank">
                 <Github className="w-6 h-6 text-gray-700 hover:text-black" />
               </a>
@@ -110,13 +111,13 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="mt-10 md:mt-0">
+          <section className="flex justify-center">
             <Image
               src="/bg.png"
               alt="Ilustração de programador"
-              width={600}
-              height={600}
-              className="w-full h-auto max-w-md mx-auto md:mx-0"
+              width={500}
+              height={500}
+              className="w-full max-w-sm h-auto"
             />
           </section>
         </div>
@@ -134,69 +135,40 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-48">
-            <Image
-              src="/javascript.svg"
-              alt="JavaScript"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
-            <Image
-              src="/typescript.svg"
-              alt="TypeScript"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
-            <Image
-              src="/react.svg"
-              alt="React"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
-            <Image
-              src="/nodejs.svg"
-              alt="Node.js"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
-            <Image
-              src="/nextjs.svg"
-              alt="Next.js"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
-            <Image
-              src="/python.svg"
-              alt="Python"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
-            <Image
-              src="/docker.svg"
-              alt="Docker"
-              width={60}
-              height={60}
-              // className="grayscale hover:grayscale-0 transition duration-300"
-            />
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+            {[
+              'javascript',
+              'typescript',
+              'react',
+              'nodejs',
+              'nextjs',
+              'python',
+              'docker',
+            ].map((tech) => (
+              <Image
+                key={tech}
+                src={`/${tech}.svg`}
+                alt={tech}
+                width={60}
+                height={60}
+                // className="grayscale hover:grayscale-0 transition duration-300"
+              />
+            ))}
           </div>
         </section>
 
         <section className="py-20 px-6 md:px-28">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Sobre mim</h2>
-          <p className="text-base text-gray-700 mb-4">
-            Sou um desenvolvedor apaixonado por criar soluções inovadoras e
-            eficientes. Com experiência em diversas tecnologias, estou sempre
-            buscando aprender e me aprimorar.
-          </p>
-          <Button className="px-6 py-2 text-white bg-gray-900 rounded hover:bg-gray-800">
-            Ver meu portfólio
-          </Button>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Sobre mim</h2>
+            <p className="text-base text-gray-700 mb-4">
+              Sou um desenvolvedor apaixonado por criar soluções inovadoras e
+              eficientes. Com experiência em diversas tecnologias, estou sempre
+              buscando aprender e me aprimorar.
+            </p>
+            <Button className="px-6 py-2 text-white bg-gray-900 rounded hover:bg-gray-800">
+              Ver meu portfólio
+            </Button>
+          </div>
         </section>
       </main>
     </>
