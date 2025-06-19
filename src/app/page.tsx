@@ -24,7 +24,7 @@ export default function HomePage() {
       <header className="flex justify-between items-center bg-white py-6 px-6 md:px-28 shadow-sm sticky top-0 z-50">
         <div id="logo" className="flex items-center gap-2">
           <Image
-            src="/terminal-bash.svg"
+            src="/terminal-bash-black.svg"
             alt="Logo do terminal do bash"
             width={35}
             height={35}
@@ -83,11 +83,10 @@ export default function HomePage() {
       )}
 
       <main className="min-h-screen bg-white text-gray-900 font-sans">
-        <div className="bg-gray-50 grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 md:px-28 py-10">
-          <section className="text-center md:text-left">
+        <section className="bg-gray-50 grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 md:px-28 py-10">
+          <div className="text-center md:text-left">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              PROGRAMADOR <br />
-              <span className="text-gray-400">Software Developer</span>
+              <span className="text-gray-900">Software Developer</span>
             </h2>
             <p className="text-base text-gray-600 mb-6">
               Seja bem-vindo ao meu portfólio website
@@ -109,7 +108,7 @@ export default function HomePage() {
                 <Instagram className="w-6 h-6 text-gray-700 hover:text-black" />
               </a>
             </div>
-          </section>
+          </div>
 
           <section className="flex justify-center">
             <Image
@@ -120,7 +119,7 @@ export default function HomePage() {
               className="w-full max-w-sm h-auto"
             />
           </section>
-        </div>
+        </section>
 
         <section
           id="tecnologias"
@@ -135,7 +134,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-36">
             {[
               'javascript',
               'typescript',
@@ -157,9 +156,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-20 px-6 md:px-28">
+        <section className="py-20 px-6 md:px-28 bg-gray-50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Sobre mim</h2>
+            <h2 className="text-center text-3xl font-bold text-gray-900 mb-8">
+              Sobre mim
+            </h2>
             <p className="text-base text-gray-700 mb-4">
               Sou um desenvolvedor apaixonado por criar soluções inovadoras e
               eficientes. Com experiência em diversas tecnologias, estou sempre
@@ -171,6 +172,56 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+
+      <footer className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+        <div className="bg-gray-900 text-white py-6 px-6 md:px-28">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-2 text-sm text-center md:text-left">
+              <span>&copy; {new Date().getFullYear()}</span>
+              <span className="flex items-center gap-1">
+                <Image
+                  src="/terminal-bash-white.svg"
+                  alt="Logo do terminal do bash"
+                  width={16}
+                  height={16}
+                />
+                Saulo Justiniano.
+              </span>
+              <span>Todos os direitos reservados.</span>
+            </div>
+
+            <div className="flex gap-4">
+              <a
+                href="https://github.com/saulojustiniano1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-300"
+                aria-label="Github"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://linkedin.com/in/saulojustiniano/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com/saulojustiniano"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
