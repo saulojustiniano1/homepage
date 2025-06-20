@@ -241,7 +241,7 @@ export default function HomePage() {
             {projetos.map((projeto, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col w-full max-w-sm mx-auto"
+                className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col w-full max-w-sm mx-auto transform transition-transform duration-300 hover:scale-105"
               >
                 <div className="relative w-full h-48">
                   <Image
