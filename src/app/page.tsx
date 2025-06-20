@@ -233,9 +233,9 @@ export default function HomePage() {
           id="projetos"
           className="bg-white py-20 px-6 md:px-28 scroll-mt-20"
         >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Projetos
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+              <span className="text-primary">Projetos</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
               Projetos que desenvolvi e tecnologias que utilizei.
