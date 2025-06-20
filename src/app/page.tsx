@@ -151,7 +151,7 @@ export default function HomePage() {
           {/* Imagem com esfera atrás */}
           <div className="relative flex justify-center z-10">
             {/* Esfera (círculo grande laranja) */}
-            <div className="absolute -top-50 md:top-0 right-10 md:right-25 md:left-80 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-zinc-200 rounded-full z-0"></div>
+            <div className="absolute -top-20 md:top-0 right-20 md:right-25 md:left-80 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-zinc-200 rounded-full z-0"></div>
 
             {/* Imagem do programador */}
             <Image
@@ -171,7 +171,7 @@ export default function HomePage() {
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Minhas <span className="text-primary">Tecnologias</span>
+              <span className="text-primary">Tecnologias</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
               Tecnologias que uso no dia a dia como desenvolvedor.
@@ -233,9 +233,14 @@ export default function HomePage() {
           id="projetos"
           className="bg-white py-20 px-6 md:px-28 scroll-mt-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Meus Projetos
-          </h2>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Projetos
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
+              Projetos que desenvolvi e tecnologias que utilizei.
+            </p>
+          </div>
 
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {projetos.map((projeto, index) => (
@@ -292,7 +297,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="mt-2 flex gap-2">
+                  <div className="mt-2 flex gap-4">
                     <a
                       href={projeto.link}
                       target="_blank"
@@ -306,7 +311,7 @@ export default function HomePage() {
                       target="_blank"
                       className="inline-flex items-center gap-2 text-gray-800 hover:text-black"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
