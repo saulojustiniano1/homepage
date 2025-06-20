@@ -3,14 +3,17 @@
 import { Button } from '@/components/ui/button';
 import {
   Briefcase,
+  Code,
   FolderGit2,
   Github,
+  Globe,
   Home,
   Instagram,
   Linkedin,
   Mail,
   Menu,
   User,
+  Wrench,
   X,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -24,6 +27,22 @@ const tecnologias = [
   { name: 'Next.js', icon: '/nextjs.svg' },
   { name: 'Python', icon: '/python.svg' },
   { name: 'Docker', icon: '/docker.svg' },
+];
+
+const projetos = [
+  {
+    nome: 'Espaço Livre',
+    imagem: '/espaco-livre.png',
+    link: '#',
+    linguagem: { nome: 'TypeScript', icone: '/typescript.svg' },
+    ferramentas: [
+      { nome: 'Next.js', icone: '/nextjs.svg' },
+      { nome: 'Tailwind', icone: '/tailwind.svg' },
+      { nome: 'PostgreSQL', icone: '/postgresql.svg' },
+    ],
+    descricao:
+      'Plataforma de aluguel de espaços por categoria, com sistema de cadastro multi-etapas, login e painel para gerenciamento.',
+  },
 ];
 
 export default function HomePage() {
@@ -53,10 +72,10 @@ export default function HomePage() {
             <User className="w-4 h-4" /> Sobre
           </a>
           <a
-            href="#portfolio"
+            href="#projetos"
             className="flex items-center gap-1 hover:text-black"
           >
-            <FolderGit2 className="w-4 h-4" /> Portfólio
+            <FolderGit2 className="w-4 h-4" /> Projetos
           </a>
           <a
             href="#servicos"
@@ -101,8 +120,9 @@ export default function HomePage() {
       )}
 
       <main className="min-h-screen bg-white text-gray-900 font-sans scroll-smooth">
-        <section className="bg-gray-50 grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 md:px-28 py-10">
-          <div className="text-center md:text-left">
+        <section className="bg-gray-50 relative grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 md:px-28 py-10 overflow-hidden">
+          {/* Texto */}
+          <div className="text-center md:text-left z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
               <span className="text-gray-900">Software Developer</span>
             </h2>
@@ -128,14 +148,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex justify-center">
+          {/* Imagem com esfera atrás */}
+          <div className="relative flex justify-center z-10">
+            {/* Esfera (círculo grande laranja) */}
+            <div className="absolute -top-50 md:top-0 right-10 md:right-25 md:left-80 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-zinc-200 rounded-full z-0"></div>
+
+            {/* Imagem do programador */}
             <Image
               src="/bg.svg"
               alt="Ilustração de programador"
               width={500}
               height={500}
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="w-full max-w-sm h-auto"
+              className="w-full max-w-sm h-auto z-10"
             />
           </div>
         </section>
@@ -205,15 +230,89 @@ export default function HomePage() {
         </section>
 
         <section
-          id="portfolio"
-          className="scroll-mt-20 py-20 px-6 md:px-28 bg-white"
+          id="projetos"
+          className="bg-white py-20 px-6 md:px-28 scroll-mt-20"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-            Portfólio
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Meus Projetos
           </h2>
-          <p className="text-center text-gray-600">
-            Em breve, você verá aqui alguns dos meus principais projetos.
-          </p>
+
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {projetos.map((projeto, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col w-full max-w-sm mx-auto"
+              >
+                <div className="relative w-full h-48">
+                  <Image
+                    src={projeto.imagem}
+                    alt={`Imagem do projeto ${projeto.nome}`}
+                    width={400}
+                    height={240}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div className="p-4 flex flex-col justify-between flex-1">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {projeto.nome}
+                    </h3>
+                    <p className="text-gray-600 mb-3 text-sm">
+                      {projeto.descricao}
+                    </p>
+
+                    <div className="flex items-center gap-2 mb-2">
+                      <Code className="w-4 h-4 text-blue-600" />
+                      <Image
+                        src={projeto.linguagem.icone}
+                        alt={projeto.linguagem.nome}
+                        width={16}
+                        height={16}
+                      />
+                      <span className="text-xs">{projeto.linguagem.nome}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
+                      <Wrench className="w-4 h-4 text-gray-700" />
+                      {projeto.ferramentas.map((ferramenta, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-1 mr-2 mb-1"
+                        >
+                          <Image
+                            src={ferramenta.icone}
+                            alt={ferramenta.nome}
+                            width={16}
+                            height={16}
+                          />
+                          <span className="text-xs">{ferramenta.nome}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-2 flex gap-2">
+                    <a
+                      href={projeto.link}
+                      target="_blank"
+                      className="inline-flex items-center gap-2 text-white bg-gray-900 px-3 py-1.5 rounded hover:bg-gray-800 transition text-sm"
+                    >
+                      <Globe className="w-4 h-4" />
+                      Ver Projeto
+                    </a>
+                    <a
+                      href="https://github.com/saulojustiniano1"
+                      target="_blank"
+                      className="inline-flex items-center gap-2 text-gray-800 hover:text-black"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section
